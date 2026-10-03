@@ -1,0 +1,190 @@
+# One skill/keyword per line, lowercase. Multi-word skills are matched as phrases.
+java
+python
+javascript
+typescript
+c++
+c#
+go
+golang
+rust
+kotlin
+swift
+ruby
+php
+scala
+sql
+nosql
+postgresql
+mysql
+mongodb
+redis
+elasticsearch
+kafka
+rabbitmq
+spring boot
+spring framework
+hibernate
+react
+angular
+vue
+node.js
+express
+django
+flask
+fastapi
+graphql
+rest api
+microservices
+docker
+kubernetes
+terraform
+ansible
+jenkins
+ci/cd
+github actions
+gitlab ci
+aws
+amazon web services
+azure
+gcp
+google cloud
+lambda
+ec2
+s3
+cloudformation
+linux
+unix
+bash
+shell scripting
+git
+agile
+scrum
+kanban
+jira
+confluence
+unit testing
+integration testing
+test driven development
+tdd
+junit
+mockito
+selenium
+cypress
+system design
+distributed systems
+data structures
+algorithms
+object oriented design
+design patterns
+machine learning
+deep learning
+natural language processing
+computer vision
+data science
+data engineering
+data analysis
+data visualization
+tableau
+power bi
+pandas
+numpy
+tensorflow
+pytorch
+scikit-learn
+spark
+hadoop
+airflow
+etl
+data warehousing
+big data
+api design
+api integration
+performance optimization
+scalability
+security
+oauth
+jwt
+encryption
+penetration testing
+networking
+tcp/ip
+load balancing
+caching
+message queues
+event driven architecture
+domain driven design
+mvc
+mvvm
+html
+css
+sass
+tailwind css
+webpack
+vite
+figma
+ui/ux design
+mobile development
+ios development
+android development
+react native
+flutter
+project management
+product management
+stakeholder management
+cross-functional collaboration
+team leadership
+mentoring
+budgeting
+forecasting
+risk management
+vendor management
+process improvement
+six sigma
+lean methodology
+sales
+business development
+account management
+customer relationship management
+crm
+salesforce
+hubspot
+digital marketing
+seo
+sem
+content marketing
+social media marketing
+email marketing
+google analytics
+a/b testing
+financial modeling
+financial analysis
+accounting
+bookkeeping
+gaap
+audit
+compliance
+regulatory reporting
+supply chain management
+inventory management
+logistics
+procurement
+negotiation
+contract management
+human resources
+talent acquisition
+recruiting
+onboarding
+performance management
+employee relations
+payroll
+communication skills
+problem solving
+critical thinking
+analytical skills
+attention to detail
+time management
+adaptability
+collaboration
+presentation skills
+public speaking

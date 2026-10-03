@@ -1,0 +1,18 @@
+# Passive/low-impact phrases that weaken a bullet point, lowercase, one per line.
+responsible for
+duties included
+duties involved
+worked on
+worked with
+helped with
+helped to
+assisted with
+in charge of
+tasked with
+involved in
+participated in
+was part of
+handled
+dealt with
+familiar with
+exposure to

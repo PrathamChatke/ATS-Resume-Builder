@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ats-resume-builder
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ats_resume
+    username: ${DB_USERNAME:ats_resume}
+    password: ${DB_PASSWORD:ats_resume}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  jwt:
+    # 32+ char secret required for HS256. Override via JWT_SECRET env var in every real deployment.
+    secret: ${JWT_SECRET:dev-only-secret-change-me-before-deploying-to-any-shared-environment}
+    expiration-minutes: 480
+  storage:
+    root-directory: ${STORAGE_ROOT:./data/resumes}
+  async:
+    core-pool-size: 4
+    max-pool-size: 16
+    queue-capacity: 500
+  gemini:
+    api-key: ${GOOGLE_API_KEY:}
+    model: ${GEMINI_MODEL:gemini-2.5-pro}
+    timeout-seconds: 30
+    max-concurrent-calls: 5
+  scoring:
+    weights:
+      keyword-match: 0.35
+      formatting: 0.20
+      structure: 0.20
+      impact: 0.15
+      contact-info: 0.10
+
+resilience4j:
+  bulkhead:
+    instances:
+      gemini:
+        max-concurrent-calls: ${app.gemini.max-concurrent-calls:5}
+        max-wait-duration: 2s
+  retry:
+    instances:
+      gemini:
+        max-attempts: 3
+        wait-duration: 1s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2

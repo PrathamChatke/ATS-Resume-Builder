@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ats_resume
+      POSTGRES_USER: ats_resume
+      POSTGRES_PASSWORD: ats_resume
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ats_resume"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Defaults target the local "postgres" service above. Override DB_* / SPRING_DATASOURCE_URL
+      # in your .env file to point at a hosted Postgres (e.g. Supabase) instead.
+      DB_USERNAME: ${DB_USERNAME:-ats_resume}
+      DB_PASSWORD: ${DB_PASSWORD:-ats_resume}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:postgresql://postgres:5432/ats_resume}
+      JWT_SECRET: ${JWT_SECRET:?set a JWT_SECRET of at least 32 characters}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:?set your Google AI Studio API key}
+      STORAGE_ROOT: /data/resumes
+    volumes:
+      - resume-storage:/data/resumes
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres-data:
+  resume-storage:
